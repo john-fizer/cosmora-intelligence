@@ -1,0 +1,57 @@
+name: Tests
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.12', '3.13', '3.14']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run supplied tests
+        run: python -m unittest discover -s tests -v
+      - name: Smoke check CLI and repeated demo
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          import subprocess
+          import sys
+          import tempfile
+
+          with tempfile.TemporaryDirectory() as directory:
+              database = Path(directory) / 'smoke.db'
+
+              def run(command):
+                  return subprocess.check_output(
+                      [sys.executable, '-m', 'cosmora.cli', command, '--db', str(database)],
+                      text=True,
+                  )
+
+              print(run('init').strip())
+              first = json.loads(run('demo'))
+              repeated = json.loads(run('demo'))
+              audited = json.loads(run('audit'))
+              expected = {
+                  'claims': {'historical': 1, 'doctrine': 1},
+                  'eligible_historical_claims': [],
+                  'blocked': [
+                      {'claim_id': 'demo-event-claim', 'reason': 'fictional example excluded'}
+                  ],
+                  'hypotheses': 1,
+              }
+              assert first == expected, first
+              assert repeated == expected, repeated
+              assert audited == expected, audited
+              print('CLI smoke checks passed; repeated demo preserves counts.')
