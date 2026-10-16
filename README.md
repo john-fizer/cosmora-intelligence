@@ -60,7 +60,7 @@ Database files, SQLite journal/WAL files, virtual environments, and Python cache
 - [Agent contracts](docs/AGENT_CONTRACTS.md): worker responsibilities and evidence, computation, training, and scientific gates.
 - [Research protocol](docs/RESEARCH_PROTOCOL.md): staged corpus development and experimental evaluation.
 
-These documents describe the intended system. The current starter implements a minimal SQLite schema, a fictional demo, and claim eligibility checks; it does not implement the full orchestration, independent verification process, or production stack.
+These documents describe the intended system. The core implements a minimal SQLite schema, a fictional demo, and claim eligibility checks. The optional chart pipeline adds pending research graphs, chart calculations and local exports. Full orchestration, independent evidence verification and the proposed production stack remain future work.
 
 ## Validation
 
@@ -72,4 +72,9 @@ GitHub Actions runs the supplied unittest suite and CLI smoke checks on pushes a
 - No birth time may be inferred from chart interpretation.
 - No LLM may calculate ephemeris positions or approve its own evidence.
 - No model training should begin until audited data, negative windows, and person-level held-out sets exist.
-- This starter requires only Python standard library; production ephemeris, orchestration, and ML dependencies remain integration work.
+- The core requires only the Python standard library. The optional chart pipeline uses pyswisseph and external ephemeris data; orchestration and ML remain future work.
+
+
+## Local chart and graph pipeline
+
+The optional pipeline now imports pending research leads, stores reproducible Whole Sign chart calculations, and exports graph data, CSV tables and a saved SVG chart. Personal charts use a separate database. See [Local charts and knowledge graph](docs/CHART_PIPELINE.md) for setup, commands, calculation settings and verification limits. Research data and generated charts remain local in the ignored data directory.
