@@ -80,3 +80,5 @@ GitHub Actions runs the supplied unittest suite and CLI smoke checks on pushes a
 The optional pipeline now imports pending research leads, stores reproducible Whole Sign chart calculations, and exports graph data, CSV tables and a saved SVG chart. Personal charts use a separate database. See [Local charts and knowledge graph](docs/CHART_PIPELINE.md) for setup, commands, calculation settings and verification limits. Research data and generated charts remain local in the ignored data directory.
 
 See [Five-person pilot and analyst annotations](docs/PILOT_WORKFLOW.md) for sampled event transits, natal comparisons, house filters and provenance-linked agent augmentation.
+
+See [Blinded interpretation and calibration](docs/BLINDED_EVALUATION.md) for anonymous chart packets, frozen rule-based predictions, independent event labels, baseline scoring, private graph exports and fresh-person validation of revised interpretations.
