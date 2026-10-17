@@ -97,7 +97,7 @@ def calculate_chart(birth, ephemeris_path):
             "validation_note": "Calculated output; no user confirmation or independent astronomical validation."}
 
 
-def save_chart(database, chart):
+def save_chart(database, chart, *, purpose="personal_example", subject_id=None):
     from .knowledge import initialize_graph, add_node, add_edge
     from .db import connect
     initialize_graph(database)
@@ -107,11 +107,12 @@ def save_chart(database, chart):
         if existing and existing["result_json"] != raw:
             raise ValueError("Chart identifier already exists with different contents")
         db.execute("INSERT OR IGNORE INTO chart_runs VALUES (?,?,?,?,?,?,0)",
-                   (chart["chart_id"], chart["input"]["person_id"], "personal_example",
+                   (chart["chart_id"], chart["input"]["person_id"], purpose,
                     canonical(chart["input"]), canonical(chart["profile"]), raw))
-        subject = "personal:" + chart["input"]["person_id"]
-        add_node(db, subject, "subject", chart["input"]["person_id"], "user_provided", {})
-        add_node(db, chart["chart_id"], "chart", "Natal chart", "calculated", chart["profile"])
+        subject = subject_id or "personal:" + chart["input"]["person_id"]
+        if db.execute("SELECT id FROM graph_nodes WHERE id=?", (subject,)).fetchone() is None:
+            add_node(db, subject, "subject", chart["input"]["person_id"], "user_provided", {})
+        add_node(db, chart["chart_id"], "chart", chart.get("kind", "Natal chart"), "calculated", chart["profile"])
         add_edge(db, chart["chart_id"], "CHART_FOR", subject, "calculated")
         for name, row in chart["placements"].items():
             db.execute("INSERT OR IGNORE INTO chart_placements VALUES (?,?,?,?,?,?,?,?,?,?)",
@@ -140,7 +141,7 @@ def render_svg(chart):
            f'<text x="36" y="68" font-size="14">{escape(str(chart["input"]["person_id"]))}</text>',
            '<text x="36" y="92" font-size="12">Calculated chart · Decan rulers unassigned · Not training evidence</text>']
     cx, cy, radius = 320, 430, 245
-    asc_sign = int(rows.get("ASCENDANT", next(iter(rows.values())))["longitude"] // 30)
+    asc_sign = chart.get("natal_ascendant_sign", int(rows.get("ASCENDANT", next(iter(rows.values())))["longitude"] // 30))
     # Whole Sign first-house cusp at the left; longitude increases counterclockwise.
     origin = asc_sign * 30
     def point(lon, r):
@@ -164,11 +165,17 @@ def render_svg(chart):
         svg.append(f'<line x1="{x:.2f}" y1="{y:.2f}" x2="{x2:.2f}" y2="{y2:.2f}" stroke="#70ded0"/>')
     svg.append('<text x="630" y="130" font-size="14">Body / point          Position           House  Decan</text>')
     for index, (name, row) in enumerate(rows.items()):
-        degree = row["degree_in_sign"]
-        minutes = int(degree * 60)
-        label = f'{name:18} {row["sign"]:11} {minutes//60:02}°{minutes%60:02}′  H{row["house"]}   D{row["decan"]}'
+        total_minutes = round(row["longitude"] * 60) % (360 * 60)
+        display_sign = SIGNS[total_minutes // 1800]
+        minutes = total_minutes % 1800
+        label = f'{name:18} {display_sign:11} {minutes//60:02}°{minutes%60:02}′  H{row["house"]}   D{row["decan"]}'
         if row.get("retrograde"):
             label += " R"
         svg.append(f'<text x="630" y="{165+index*30}" font-family="monospace" font-size="12">{escape(label)}</text>')
+    for name, row in chart.get("natal_placements", {}).items():
+        x, y = point(row["longitude"], radius - 133)
+        svg.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3" fill="#ffca75"><title>Natal {escape(name)}</title></circle>')
+    if chart.get("natal_placements"):
+        svg.append('<text x="36" y="790" font-size="13">Teal: transit sample. Amber: natal. Houses: natal Whole Sign. Event time uncertain.</text>')
     svg.append('</g></svg>')
     return "\n".join(svg)

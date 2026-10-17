@@ -45,7 +45,7 @@ Imports are replayable without duplicates. Changed records or conflicting identi
 
 ## Remaining research work
 
-The first 100 people and 10 event leads remain pending independent evidence verification. Event charts stay queued until adequate birth records and event time precision are available. No midnight/noon timestamps, uncertain houses, aspect claims or observed outcomes are invented. Transit comparisons, date-uncertainty sampling, independent astronomical reference checks and evidence approval workflows are not yet implemented.
+The first 100 people and 10 event leads remain pending independent evidence verification. Event charts stay queued until adequate birth records and event time precision are available. No midnight/noon timestamps, uncertain houses, aspect claims or observed outcomes are invented. The separate five-person pilot now implements provisional transit comparisons, date-uncertainty sampling and checked agent annotations; see PILOT_WORKFLOW.md. Independent astronomical reference checks and evidence approval workflows remain future work.
 
 ## Verify
 
