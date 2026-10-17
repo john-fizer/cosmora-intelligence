@@ -23,3 +23,7 @@ G4 Scientific: no promoted predictive model without untouched holdout, preregist
 
 ## Adversarial fixtures
 Invented citation; 2 copies of same syndicated story; ambiguous birth time; date-only birth; event with uncertain year; contradictory records; retroactively dated prediction; famous-person biography leaked into prompt; doctrine rule incorrectly labeled empirical fact.
+
+## Blinded interpretation experiment
+
+The [blinded evaluation workflow](BLINDED_EVALUATION.md) separates the isolated astrologer interpreter from the independent event labeler and development-only calibration analyst. The interpreter receives only sanitized chart packets and a frozen rulebook. The coordinator commits complete predictions before revealing labels; the evaluator retains misses, false positives and baseline comparisons. Revised axioms require new studies and fresh holdout people. The module provides the handoff and ledger; it does not launch agents or enforce an external sandbox.
