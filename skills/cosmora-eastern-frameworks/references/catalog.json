@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "library_version": "0.1.0",
+  "research_date": "2026-10-17",
+  "status_definition": {
+    "implemented_arithmetic": "Local helper tested on synthetic cases; not independent astronomical or empirical validation.",
+    "procedure_only": "Reusable ordered procedure, no complete executable engine.",
+    "research_only": "Discovery and explicit gaps; execution must stop.",
+    "interpretation_only": "Attributed conceptual/symbolic reading; not a measured event."
+  },
+  "profiles": {
+    "hellenistic-traditional-v1": {
+      "tradition": "Hellenistic named reconstruction",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "nodes_chiron": "separate_modern_overlay",
+      "interpretation_status": "doctrine"
+    },
+    "modern-tropical-v1": {
+      "tradition": "Modern Western comparison",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "modern",
+      "nodes_chiron": "per_selected_chart_profile",
+      "interpretation_status": "doctrine"
+    },
+    "jaimini-sidereal-v1": {
+      "tradition": "Jaimini selected conventional/PVR subprofiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "nodes": "required_for_actual_ephemeris",
+      "interpretation_status": "doctrine"
+    },
+    "jyotish-sidereal-v1": {
+      "tradition": "Jyotish named arithmetic profiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "calendar_year_model": "required_before_date_generation",
+      "interpretation_status": "doctrine"
+    },
+    "chinese-calendar-v1": {
+      "tradition": "Chinese school must be selected",
+      "zodiac": "not_western_zodiac",
+      "rulership": "not_applicable",
+      "calendar": "must_be_verified",
+      "interpretation_status": "doctrine_or_philosophy"
+    }
+  },
+  "sources": {
+    "hko-stems": {
+      "url": "https://www.hko.gov.hk/en/gts/time/stemsandbranches.htm",
+      "locator": "Hong Kong Observatory Heavenly Stems and Earthly Branches,Tables2-5; calendar facts, not validation of astrology.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "hko-terms": {
+      "url": "https://www.hko.gov.hk/en/gts/time/24solarterms.htm",
+      "locator": "Hong Kong Observatory24solar terms; solar longitude boundaries including LiChun315degrees.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "iztro-rules": {
+      "url": "https://docs.iztro.com/learn/setup",
+      "locator": "iztro developer placement sequence; implementation-specific rules, independent fixtures required.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "iztro-api": {
+      "url": "https://docs.iztro.com/en_US/posts/astrolabe",
+      "locator": "iztro bySolar/byLunar; leap-month handling and API settings; not universal school agreement.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ctext-great-plan": {
+      "url": "https://ctext.org/text.pl?if=gb&node=43021&remap=gb",
+      "locator": "Shang Shu, Great Plan; five phases in historical philosophical context.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ctext-changes": {
+      "url": "https://ctext.org/book-of-changes/xi-ci-shang",
+      "locator": "Book of Changes,XiCiI; historical philosophical text, not a Western-chart mapping.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    }
+  },
+  "methods": [
+    {
+      "id": "bazi",
+      "label": "BaZi Four Pillars",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "research_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "hko-stems",
+        "hko-terms"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Resolve calendar/time boundaries, day anchor, hidden stems and luck-cycle school; HKO validates calendar facts only."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false,
+      "activation": "optional_research_only",
+      "selection_note": "User deferred BaZi on 2026-10-18. Exclude from default delineation, feature generation and comparisons; revisit only on explicit request."
+    },
+    {
+      "id": "zi-wei-dou-shu",
+      "label": "Zi Wei Dou Shu",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "research_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "iztro-rules",
+        "iztro-api"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Verify lunisolar calendar, leap months, early/late Zi, palace and star-placement fixtures."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "yin-yang-wuxing",
+      "label": "Yin-yang and wuxing",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "interpretation_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "ctext-great-plan"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Philosophical vocabulary; no automatic equivalence with sect or Greek elements."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "i-ching",
+      "label": "I Ching context and casting",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "interpretation_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "ctext-changes"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Select casting and moving-line interpretation convention; no horoscope-derived hexagram mapping."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    }
+  ],
+  "scope_note": "Initial expandable inventory, not all historical techniques; author-specific and conflicting schools remain separate."
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora Eastern frameworks"
+  short_description: "Research Eastern concepts with separate calendrical rules."
+  default_prompt: "Use $cosmora-eastern-frameworks to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

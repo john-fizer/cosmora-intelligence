@@ -82,3 +82,5 @@ The optional pipeline now imports pending research leads, stores reproducible Wh
 See [Five-person pilot and analyst annotations](docs/PILOT_WORKFLOW.md) for sampled event transits, natal comparisons, house filters and provenance-linked agent augmentation.
 
 See [Blinded interpretation and calibration](docs/BLINDED_EVALUATION.md) for anonymous chart packets, frozen rule-based predictions, independent event labels, baseline scoring, private graph exports and fresh-person validation of revised interpretations.
+
+See [Technique and reusable skill library](docs/TECHNIQUE_LIBRARY.md) for source-attributed Hellenistic, Jaimini/Jyotish, degree-system and Eastern-framework procedures, calculation helpers and explicit research gaps.

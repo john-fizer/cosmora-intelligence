@@ -1,0 +1,1564 @@
+{
+  "schema_version": 1,
+  "library_version": "0.1.0",
+  "research_date": "2026-10-17",
+  "status_definition": {
+    "implemented_arithmetic": "Local helper tested on synthetic cases; not independent astronomical or empirical validation.",
+    "procedure_only": "Reusable ordered procedure, no complete executable engine.",
+    "research_only": "Discovery and explicit gaps; execution must stop.",
+    "interpretation_only": "Attributed conceptual/symbolic reading; not a measured event."
+  },
+  "profiles": {
+    "hellenistic-traditional-v1": {
+      "tradition": "Hellenistic named reconstruction",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "nodes_chiron": "separate_modern_overlay",
+      "interpretation_status": "doctrine"
+    },
+    "modern-tropical-v1": {
+      "tradition": "Modern Western comparison",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "modern",
+      "nodes_chiron": "per_selected_chart_profile",
+      "interpretation_status": "doctrine"
+    },
+    "jaimini-sidereal-v1": {
+      "tradition": "Jaimini selected conventional/PVR subprofiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "nodes": "required_for_actual_ephemeris",
+      "interpretation_status": "doctrine"
+    },
+    "jyotish-sidereal-v1": {
+      "tradition": "Jyotish named arithmetic profiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "calendar_year_model": "required_before_date_generation",
+      "interpretation_status": "doctrine"
+    },
+    "chinese-calendar-v1": {
+      "tradition": "Chinese school must be selected",
+      "zodiac": "not_western_zodiac",
+      "rulership": "not_applicable",
+      "calendar": "must_be_verified",
+      "interpretation_status": "doctrine_or_philosophy"
+    }
+  },
+  "sources": {
+    "ptolemy-i": {
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/1B%2A.html",
+      "locator": "Tetrabiblos I.7,13,17,19-24; public ancient text, Robbins translation; locate each named chapter.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ptolemy-iii": {
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/3B%2A.html",
+      "locator": "Tetrabiblos III.10; Fortune and direction/length-of-life procedures; historical doctrine.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ptolemy-iv": {
+      "url": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Ptolemy/Tetrabiblos/4C%2A.html",
+      "locator": "Tetrabiblos IV.10 Of the Division of Times; distinguish annual movement and subdivisions.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "valens-riley": {
+      "url": "https://www.csus.edu/indiv/r/rileymt/Vettius%20Valens%20entire.pdf",
+      "locator": "Valens Anthologies; Riley university-hosted draft; II.3/22 Lots, IV.4-10 releasing, VI.6 decennials. Direct PDF access failed in agent pass; indexed passages located.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "valens-context": {
+      "url": "https://www.skyscript.co.uk/valens_riley.html",
+      "locator": "Riley translation mirror/release history; distinguishes draft from independently checked primary text.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "tap-zr192": {
+      "url": "https://theastrologypodcast.com/transcripts/ep-192-transcript-zodiacal-releasing-an-ancient-timing-technique/",
+      "locator": "Brennan and Schaim, episode192, calculation, allocation, same-sign and Loosing of Bond discussions; named modern reconstruction.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "tap-prof153": {
+      "url": "https://theastrologypodcast.com/transcripts/ep-153-annual-profections-an-ancient-time-lord-technique/",
+      "locator": "Brennan episode153; annual profection age and house activation; modern reconstruction.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "tap-house442": {
+      "url": "https://theastrologypodcast.com/transcripts/tap-ep-442-transcript-the-rulers-of-the-houses-in-astrology/",
+      "locator": "Episode442; modern practitioner house-ruler delineation exposition.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "skyscript-dispositor": {
+      "url": "https://www.skyscript.co.uk/glossary/dispositor/",
+      "locator": "Dispositor definition; graph tracing/terminal algorithm is Cosmora editorial formalization.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "skyscript-faces": {
+      "url": "https://www.skyscript.co.uk/glossary/faces/",
+      "locator": "Faces: distinguish Firmicus/planetary sequence from Manilius/triplicity decans.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "skyscript-twelfths": {
+      "url": "https://www.skyscript.co.uk/glossary/dodekatemoria/",
+      "locator": "Dodekatemoria: own-sign twelfth parts and multiplication convention; retain variants.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "skyscript-triplicity": {
+      "url": "https://www.skyscript.co.uk/triplicities.html",
+      "locator": "Houlding, Classical Use of Triplicities; Dorotheus I.1-2/12 cited; modern technical exposition.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "jaimini-older": {
+      "url": "https://www.shanti-ganesha.com/classic/jaimini-sutras.pdf",
+      "locator": "Older English Jaimini Sutras commentary;1.1.2-4 aspects,1.1.11ff karakas,1.1.29-31 arudha,1.2.1 navamsa. Translation attribution/title page requires edition verification.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-textbook": {
+      "url": "https://www.vedicastrologer.org/articles/vedic_astro_textbook.pdf",
+      "locator": "PVR Narasimha Rao, Vedic Astrology Integrated Approach;6.2.9 D9,8.2 karakas,9.2 arudha,10.3 rasi aspects,16.2-3 Vimshottari. Author-hosted; later refinements explicitly acknowledged.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-karaka2008": {
+      "url": "https://www.vedicastrologer.org/articles/c_karaka.pdf",
+      "locator": "PVR2008-10-24 independent interpretation,pp1-4; distinct from conventional seven/eight schemes.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-chara2014": {
+      "url": "https://vedicastrologer.org/articles/pp_chara_dasa.pdf",
+      "locator": "PVR2014-04-14 v1,pp3-4; innovative Parasara Chara Dasa; seed/co-lord/duration rules; antardashas omitted.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "srath-argala": {
+      "url": "https://srath.com/jyoti%E1%B9%A3a/amateur/argala-planetary-intervention/",
+      "locator": "Sanjay Rath Argala: Planetary Intervention; primary, secondary and special intervention sections.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "srath-ak": {
+      "url": "https://srath.com/jyoti%E1%B9%A3a/scholar/atmakaraka-karakamsa/",
+      "locator": "Sanjay Rath Atmakaraka and Karakamsa; opening definition and AK relative to Lagnamsa.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "jh-features": {
+      "url": "https://www.vedicastrologer.org/jh/features.htm",
+      "locator": "Author software feature inventory; documents alternative dashas/year models, not sufficient proof of each algorithm.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "swiss-program": {
+      "url": "https://www.astro.com/swisseph/swephprg.htm",
+      "locator": "Swiss Ephemeris programmer manual12.2 sidereal modes/SEFLG_SIDEREAL; do not silently subtract ayanamsha as production ephemeris substitute.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "hko-stems": {
+      "url": "https://www.hko.gov.hk/en/gts/time/stemsandbranches.htm",
+      "locator": "Hong Kong Observatory Heavenly Stems and Earthly Branches,Tables2-5; calendar facts, not validation of astrology.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "hko-terms": {
+      "url": "https://www.hko.gov.hk/en/gts/time/24solarterms.htm",
+      "locator": "Hong Kong Observatory24solar terms; solar longitude boundaries including LiChun315degrees.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "iztro-rules": {
+      "url": "https://docs.iztro.com/learn/setup",
+      "locator": "iztro developer placement sequence; implementation-specific rules, independent fixtures required.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "iztro-api": {
+      "url": "https://docs.iztro.com/en_US/posts/astrolabe",
+      "locator": "iztro bySolar/byLunar; leap-month handling and API settings; not universal school agreement.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ctext-great-plan": {
+      "url": "https://ctext.org/text.pl?if=gb&node=43021&remap=gb",
+      "locator": "Shang Shu, Great Plan; five phases in historical philosophical context.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "ctext-changes": {
+      "url": "https://ctext.org/book-of-changes/xi-ci-shang",
+      "locator": "Book of Changes,XiCiI; historical philosophical text, not a Western-chart mapping.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "nikola-primary": {
+      "url": "https://www.astrologyinserbia.com/e/nikola/tajna_svakogstepena.htm",
+      "locator": "Nikola Stojanovic author page; unavailable during research. Exact degree indexing and exception dictionary unresolved.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "sabian-origin": {
+      "url": "https://sabian.org/sabiansymbols.php",
+      "locator": "Sabian Assembly origin/history; Marc Edmund Jones and Elsie Wheeler; source/edition distinction.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "sabian-index": {
+      "url": "https://sabian.org/sunrise_symbols.php",
+      "locator": "Sabian Assembly Which Sabian Symbol Should You Use?,rules1-5; exact-degree and zero-degree indexing differs from common floor+1 bins.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "rudhyar-book": {
+      "url": "https://www.khaldea.com/rudhyar/aoft/aoft_c8_s4_p1.shtml",
+      "locator": "Rudhyar bibliographic discussion; separate modern commentary; no full symbol dictionary redistribution.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "primary-directions": {
+      "url": "https://sevenstarsastrology.com/astrological-predictive-techniques-primary-directions-1-ascensions-bounds/",
+      "locator": "Practitioner technical exposition: ascensions, bounds, DorotheusIII.2; direction key/geometrical model must be selected.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "firdaria-later": {
+      "url": "https://firdaria.com/",
+      "locator": "Practitioner-operated overview explicitly medieval/Persian; not Hellenistic.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "valens-summary": {
+      "url": "https://projecthindsight.com/products/greek%20summaries/valens.html",
+      "locator": "Project Hindsight Valens summaries,BookVI; discovery locator not complete execution recipe.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    }
+  },
+  "methods": [
+    {
+      "id": "natal-delineation",
+      "label": "Ordered natal delineation worksheet",
+      "version": "0.1.0",
+      "tradition": "Hellenistic",
+      "status": "procedure_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i",
+        "tap-house442"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "dispositor-chains",
+      "label": "Dispositor chains and terminal cycles",
+      "version": "0.1.0",
+      "tradition": "Western",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-dispositors/SKILL.md",
+      "procedure": "skills/cosmora-dispositors/references/procedure.md",
+      "source_ids": [
+        "skyscript-dispositor",
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": "dispositors",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "hermetic-lots",
+      "label": "Sect-reversed Fortune and Spirit",
+      "version": "0.1.0",
+      "tradition": "Hellenistic",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-lots-profections/SKILL.md",
+      "procedure": "skills/cosmora-lots-profections/references/procedure.md",
+      "source_ids": [
+        "valens-riley"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1"
+      ],
+      "backend": "lots",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "annual-profections",
+      "label": "Annual whole-sign profection by completed age",
+      "version": "0.1.0",
+      "tradition": "Hellenistic reconstruction",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-lots-profections/SKILL.md",
+      "procedure": "skills/cosmora-lots-profections/references/procedure.md",
+      "source_ids": [
+        "ptolemy-iv",
+        "tap-prof153"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1"
+      ],
+      "backend": "profection",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "zodiacal-releasing",
+      "label": "Zodiacal Releasing L1-L4 and Loosing of Bond",
+      "version": "0.1.0",
+      "tradition": "Brennan-Schaim reconstruction",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-zodiacal-releasing/SKILL.md",
+      "procedure": "skills/cosmora-zodiacal-releasing/references/procedure.md",
+      "source_ids": [
+        "valens-riley",
+        "tap-zr192"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1"
+      ],
+      "backend": "zodiacal_releasing",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "chaldean-decans",
+      "label": "Planetary decan rulers",
+      "version": "0.1.0",
+      "tradition": "Traditional Western",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-degree-systems/SKILL.md",
+      "procedure": "skills/cosmora-degree-systems/references/procedure.md",
+      "source_ids": [
+        "skyscript-faces"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": "decans",
+      "fixed_parameters": {
+        "system": "chaldean"
+      },
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "triplicity-decans",
+      "label": "Zodiacal triplicity decan rulers",
+      "version": "0.1.0",
+      "tradition": "Named zodiacal decan profile",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-degree-systems/SKILL.md",
+      "procedure": "skills/cosmora-degree-systems/references/procedure.md",
+      "source_ids": [
+        "skyscript-faces"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": "decans",
+      "fixed_parameters": {
+        "system": "triplicity"
+      },
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "dodecatemoria",
+      "label": "Own-sign expanded twelfth-parts",
+      "version": "0.1.0",
+      "tradition": "Named historical variant",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-degree-systems/SKILL.md",
+      "procedure": "skills/cosmora-degree-systems/references/procedure.md",
+      "source_ids": [
+        "skyscript-twelfths"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": "twelfth_parts",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "nakshatra-pada",
+      "label": "27-nakshatra and pada indexing",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1",
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "nakshatra",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "navamsa",
+      "label": "Standard D9 derived position",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1",
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "navamsa",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "chara-karakas",
+      "label": "Conventional seven/eight karaka ranking",
+      "version": "0.1.0",
+      "tradition": "Jaimini named profiles",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older",
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "chara_karakas",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Exact ties halt; school-specific tie-sharing variants are not implemented."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "rasi-drishti",
+      "label": "Movable/fixed/dual sign aspects",
+      "version": "0.1.0",
+      "tradition": "Jaimini",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "rasi_drishti",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "arudha-pvr-textbook",
+      "label": "Arudha with tenth-from-raw exception",
+      "version": "0.1.0",
+      "tradition": "PVR textbook9.2 named convention",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "arudha",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Caller resolves lord; Scorpio/Aquarius co-lord hierarchy is not automated."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "vimshottari-birth-balance",
+      "label": "Birth balance and full-parent antardasha fractions",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "vimshottari_balance",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "No calendar dates; explicit year model required in a future dated engine."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sect",
+      "label": "Sect and sect light",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need independently calculated solar altitude and horizon uncertainty."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "house-rulers",
+      "label": "Topic through house ruler",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "tap-house442"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Interpretation vocabulary needs attributed topic passages."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "essential-dignities",
+      "label": "Domicile exaltation fall and detriment variants",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Pin edition tables and distinguish disputed detriment history."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "triplicity-rulers",
+      "label": "Dorothean three-ruler scheme",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "skyscript-triplicity"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Choose sect order; no automatic life-third calendar boundaries."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sign-configurations",
+      "label": "Whole-sign configurations and aversion",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Degree-based aspects remain a separate profile."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "application-separation",
+      "label": "Application and separation",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need motion and exact branch/orb/phase convention."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "planetary-conditions",
+      "label": "Solar visibility stations reception and overcoming",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "valens-riley"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Thresholds and school-specific conditions remain unresolved."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "egyptian-bounds",
+      "label": "Egyptian unequal bounds",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Complete edition-checked table import and hash pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "ptolemaic-bounds",
+      "label": "Ptolemaic unequal bounds",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-i"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Resolve transcription/edition anomalies including Libra row before production lookup."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "fortune-derived-houses",
+      "label": "Whole-sign houses from Fortune",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "valens-riley"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Topic synthesis and chart uncertainty review pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "monthly-profections",
+      "label": "Monthly and daily profection variants",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-iv"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Do not mix birthday monthly divisions with ancient alternative units."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "primary-directions",
+      "label": "Primary directions",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "primary-directions"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Select geometry significator latitude direct/converse motion and time key."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "distributions-bounds",
+      "label": "Distributions through bounds",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "primary-directions"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Requires a checked direction engine and named bounds table."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "circumambulations",
+      "label": "Circumambulations",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-iii"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Related direction family; not an independent clock by default."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "decennials",
+      "label": "Decennials",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "valens-summary"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Reconcile ValensVI.6 start and subperiod branches."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "natural-ages",
+      "label": "Natural planetary ages",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-iv"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Source-attributed qualitative periods distinct from decennials."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "prenatal-syzygy",
+      "label": "Prenatal syzygy procedures",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "ptolemy-iii"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Find lunation by checked ephemeris; select a specific subsequent use."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "secondary-progressions",
+      "label": "Secondary progressions",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "swiss-program"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Modern method; day/year key and progressed angles/house procedure need dedicated sources and fixtures."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "solar-returns",
+      "label": "Solar returns",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "swiss-program"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need exact solar-longitude root solver, location policy and independent fixtures."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "solar-arcs",
+      "label": "Solar arc directions",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "swiss-program"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need true/mean arc distinction and sourced progression convention."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "firdaria",
+      "label": "Firdaria",
+      "version": "0.1.0",
+      "tradition": "Western named tradition",
+      "status": "research_only",
+      "skill": "skills/cosmora-delineation/SKILL.md",
+      "procedure": "skills/cosmora-delineation/references/procedure.md",
+      "source_ids": [
+        "firdaria-later"
+      ],
+      "profiles": [
+        "hellenistic-traditional-v1",
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Medieval Persian method; complete period/node/sect variants not transcribed."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "karakamsha",
+      "label": "Karakamsha delineation",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "procedure_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "srath-ak"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Compute AK D9 sign; select D9 reading versus projected D1 explicitly."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "argala",
+      "label": "Argala and obstruction",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "procedure_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "srath-argala"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Record pair evidence; full equal-count strength hierarchy not automated."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "jaimini-chara-dasha",
+      "label": "Jaimini Chara Dasha variants",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-chara2014"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Resolve selected school, seed/co-lord ties, numerical weaknesses, year model and subperiods."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "karaka-pvr2008",
+      "label": "PVR2008 alternative karaka procedure",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-karaka2008"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Do not substitute for conventional seven/eight schemes."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "narayana-dasha",
+      "label": "Narayana Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Feature inventory verifies existence only; complete sourced procedure pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sthira-dasha",
+      "label": "Sthira Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Start planet and suitability conditions need a complete named profile."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "shoola-dasha",
+      "label": "Shoola Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full execution branches and interpretation passages pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "jaimini-yogas",
+      "label": "Jaimini yogas and yogada",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Require exact sutra/commentary, topic and exception list; no invented generic yoga scores."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sidereal-ephemeris",
+      "label": "Sidereal ephemeris profile",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "swiss-program"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Existing chart engine is tropical; native sidereal adapter is not implemented."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "vimshottari-dated",
+      "label": "Dated Vimshottari full hierarchy",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Birth-balance helper exists; date conversion/year model and full nested engine pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "panchanga",
+      "label": "Panchanga tithi karana yoga",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need complete validated tables and solar/lunar calendrical boundaries."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "ashtottari-dasha",
+      "label": "Ashtottari Dasha",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Conditional applicability, cycle and date units need exact sourced profile."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "yogini-dasha",
+      "label": "Yogini Dasha",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Complete cycle start units and variants pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "ashtakavarga",
+      "label": "Ashtakavarga",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full contributor tables and reductions require edition checking."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "shadbala",
+      "label": "Shadbala",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full strength components, units, day/night calculations and validation pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "graha-drishti",
+      "label": "Graha Drishti",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Do not confuse planet-based special aspects with Jaimini sign aspects."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "stojanovic-degree-theory",
+      "label": "Nikola Stojanovic degree theory",
+      "version": "0.1.0",
+      "tradition": "Modern author-specific",
+      "status": "research_only",
+      "skill": "skills/cosmora-degree-systems/SKILL.md",
+      "procedure": "skills/cosmora-degree-systems/references/procedure.md",
+      "source_ids": [
+        "nikola-primary"
+      ],
+      "profiles": [
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Primary source unavailable; zero degree, ordinal indexing and exceptions unresolved; no full dictionary imported."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sabian-symbols",
+      "label": "Sabian symbol interpretation",
+      "version": "0.1.0",
+      "tradition": "Modern author-specific",
+      "status": "interpretation_only",
+      "skill": "skills/cosmora-degree-systems/SKILL.md",
+      "procedure": "skills/cosmora-degree-systems/references/procedure.md",
+      "source_ids": [
+        "sabian-origin",
+        "sabian-index",
+        "rudhyar-book"
+      ],
+      "profiles": [
+        "modern-tropical-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Choose indexing convention/edition; complete copyrighted dictionary is not bundled."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "bazi",
+      "label": "BaZi Four Pillars",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "research_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "hko-stems",
+        "hko-terms"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Resolve calendar/time boundaries, day anchor, hidden stems and luck-cycle school; HKO validates calendar facts only."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false,
+      "activation": "optional_research_only",
+      "selection_note": "User deferred BaZi on 2026-10-18. Exclude from default delineation, feature generation and comparisons; revisit only on explicit request."
+    },
+    {
+      "id": "zi-wei-dou-shu",
+      "label": "Zi Wei Dou Shu",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "research_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "iztro-rules",
+        "iztro-api"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Verify lunisolar calendar, leap months, early/late Zi, palace and star-placement fixtures."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "yin-yang-wuxing",
+      "label": "Yin-yang and wuxing",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "interpretation_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "ctext-great-plan"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Philosophical vocabulary; no automatic equivalence with sect or Greek elements."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "i-ching",
+      "label": "I Ching context and casting",
+      "version": "0.1.0",
+      "tradition": "Chinese named systems",
+      "status": "interpretation_only",
+      "skill": "skills/cosmora-eastern-frameworks/SKILL.md",
+      "procedure": "skills/cosmora-eastern-frameworks/references/procedure.md",
+      "source_ids": [
+        "ctext-changes"
+      ],
+      "profiles": [
+        "chinese-calendar-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Select casting and moving-line interpretation convention; no horoscope-derived hexagram mapping."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    }
+  ],
+  "scope_note": "Initial expandable inventory, not all historical techniques; author-specific and conflicting schools remain separate."
+}

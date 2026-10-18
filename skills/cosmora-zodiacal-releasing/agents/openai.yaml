@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora Zodiacal Releasing"
+  short_description: "Schedule releasing levels and Loosing of the Bond."
+  default_prompt: "Use $cosmora-zodiacal-releasing to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

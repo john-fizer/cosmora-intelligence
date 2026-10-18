@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora Jyotish primitives"
+  short_description: "Compute sidereal divisions and Vimshottari birth balance."
+  default_prompt: "Use $cosmora-jyotish to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

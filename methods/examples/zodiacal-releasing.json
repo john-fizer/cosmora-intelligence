@@ -1,0 +1,8 @@
+{
+  "start_utc": "2000-01-01T00:00:00Z",
+  "days": 7200,
+  "fortune_longitude": 10,
+  "spirit_longitude": 70,
+  "release_lot": "spirit",
+  "levels": 2
+}

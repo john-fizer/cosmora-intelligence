@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "library_version": "0.1.0",
+  "research_date": "2026-10-17",
+  "status_definition": {
+    "implemented_arithmetic": "Local helper tested on synthetic cases; not independent astronomical or empirical validation.",
+    "procedure_only": "Reusable ordered procedure, no complete executable engine.",
+    "research_only": "Discovery and explicit gaps; execution must stop.",
+    "interpretation_only": "Attributed conceptual/symbolic reading; not a measured event."
+  },
+  "profiles": {
+    "hellenistic-traditional-v1": {
+      "tradition": "Hellenistic named reconstruction",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "nodes_chiron": "separate_modern_overlay",
+      "interpretation_status": "doctrine"
+    },
+    "modern-tropical-v1": {
+      "tradition": "Modern Western comparison",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "modern",
+      "nodes_chiron": "per_selected_chart_profile",
+      "interpretation_status": "doctrine"
+    },
+    "jaimini-sidereal-v1": {
+      "tradition": "Jaimini selected conventional/PVR subprofiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "nodes": "required_for_actual_ephemeris",
+      "interpretation_status": "doctrine"
+    },
+    "jyotish-sidereal-v1": {
+      "tradition": "Jyotish named arithmetic profiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "calendar_year_model": "required_before_date_generation",
+      "interpretation_status": "doctrine"
+    },
+    "chinese-calendar-v1": {
+      "tradition": "Chinese school must be selected",
+      "zodiac": "not_western_zodiac",
+      "rulership": "not_applicable",
+      "calendar": "must_be_verified",
+      "interpretation_status": "doctrine_or_philosophy"
+    }
+  },
+  "sources": {
+    "pvr-textbook": {
+      "url": "https://www.vedicastrologer.org/articles/vedic_astro_textbook.pdf",
+      "locator": "PVR Narasimha Rao, Vedic Astrology Integrated Approach;6.2.9 D9,8.2 karakas,9.2 arudha,10.3 rasi aspects,16.2-3 Vimshottari. Author-hosted; later refinements explicitly acknowledged.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "jh-features": {
+      "url": "https://www.vedicastrologer.org/jh/features.htm",
+      "locator": "Author software feature inventory; documents alternative dashas/year models, not sufficient proof of each algorithm.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "swiss-program": {
+      "url": "https://www.astro.com/swisseph/swephprg.htm",
+      "locator": "Swiss Ephemeris programmer manual12.2 sidereal modes/SEFLG_SIDEREAL; do not silently subtract ayanamsha as production ephemeris substitute.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    }
+  },
+  "methods": [
+    {
+      "id": "nakshatra-pada",
+      "label": "27-nakshatra and pada indexing",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1",
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "nakshatra",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "navamsa",
+      "label": "Standard D9 derived position",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1",
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "navamsa",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "vimshottari-birth-balance",
+      "label": "Birth balance and full-parent antardasha fractions",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": "vimshottari_balance",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "No calendar dates; explicit year model required in a future dated engine."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sidereal-ephemeris",
+      "label": "Sidereal ephemeris profile",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "swiss-program"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Existing chart engine is tropical; native sidereal adapter is not implemented."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "vimshottari-dated",
+      "label": "Dated Vimshottari full hierarchy",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Birth-balance helper exists; date conversion/year model and full nested engine pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "panchanga",
+      "label": "Panchanga tithi karana yoga",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Need complete validated tables and solar/lunar calendrical boundaries."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "ashtottari-dasha",
+      "label": "Ashtottari Dasha",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Conditional applicability, cycle and date units need exact sourced profile."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "yogini-dasha",
+      "label": "Yogini Dasha",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Complete cycle start units and variants pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "ashtakavarga",
+      "label": "Ashtakavarga",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full contributor tables and reductions require edition checking."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "shadbala",
+      "label": "Shadbala",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full strength components, units, day/night calculations and validation pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "graha-drishti",
+      "label": "Graha Drishti",
+      "version": "0.1.0",
+      "tradition": "Jyotish",
+      "status": "research_only",
+      "skill": "skills/cosmora-jyotish/SKILL.md",
+      "procedure": "skills/cosmora-jyotish/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jyotish-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Do not confuse planet-based special aspects with Jaimini sign aspects."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    }
+  ],
+  "scope_note": "Initial expandable inventory, not all historical techniques; author-specific and conflicting schools remain separate."
+}

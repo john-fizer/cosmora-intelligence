@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora dispositor chains"
+  short_description: "Trace dispositor chains and distinguish terminal cycles."
+  default_prompt: "Use $cosmora-dispositors to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora Lots and profections"
+  short_description: "Calculate Fortune, Spirit and annual profection anchors."
+  default_prompt: "Use $cosmora-lots-profections to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."
