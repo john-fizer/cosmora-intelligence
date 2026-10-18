@@ -1,0 +1,14 @@
+{
+  "longitudes": {
+    "SUN": 28,
+    "MOON": 25,
+    "MARS": 21,
+    "MERCURY": 18,
+    "JUPITER": 14,
+    "VENUS": 9,
+    "SATURN": 3
+  },
+  "scheme": "seven",
+  "ayanamsha_id": "synthetic_sidereal_reference",
+  "longitude_source": "synthetic_sidereal_fixture_not_real_ephemeris"
+}

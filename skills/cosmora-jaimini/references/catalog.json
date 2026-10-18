@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "library_version": "0.1.0",
+  "research_date": "2026-10-17",
+  "status_definition": {
+    "implemented_arithmetic": "Local helper tested on synthetic cases; not independent astronomical or empirical validation.",
+    "procedure_only": "Reusable ordered procedure, no complete executable engine.",
+    "research_only": "Discovery and explicit gaps; execution must stop.",
+    "interpretation_only": "Attributed conceptual/symbolic reading; not a measured event."
+  },
+  "profiles": {
+    "hellenistic-traditional-v1": {
+      "tradition": "Hellenistic named reconstruction",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "nodes_chiron": "separate_modern_overlay",
+      "interpretation_status": "doctrine"
+    },
+    "modern-tropical-v1": {
+      "tradition": "Modern Western comparison",
+      "zodiac": "tropical",
+      "houses": "whole_sign",
+      "rulership": "modern",
+      "nodes_chiron": "per_selected_chart_profile",
+      "interpretation_status": "doctrine"
+    },
+    "jaimini-sidereal-v1": {
+      "tradition": "Jaimini selected conventional/PVR subprofiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "nodes": "required_for_actual_ephemeris",
+      "interpretation_status": "doctrine"
+    },
+    "jyotish-sidereal-v1": {
+      "tradition": "Jyotish named arithmetic profiles",
+      "zodiac": "sidereal",
+      "houses": "whole_sign",
+      "rulership": "traditional",
+      "ayanamsha": "required_in_inputs",
+      "calendar_year_model": "required_before_date_generation",
+      "interpretation_status": "doctrine"
+    },
+    "chinese-calendar-v1": {
+      "tradition": "Chinese school must be selected",
+      "zodiac": "not_western_zodiac",
+      "rulership": "not_applicable",
+      "calendar": "must_be_verified",
+      "interpretation_status": "doctrine_or_philosophy"
+    }
+  },
+  "sources": {
+    "jaimini-older": {
+      "url": "https://www.shanti-ganesha.com/classic/jaimini-sutras.pdf",
+      "locator": "Older English Jaimini Sutras commentary;1.1.2-4 aspects,1.1.11ff karakas,1.1.29-31 arudha,1.2.1 navamsa. Translation attribution/title page requires edition verification.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-textbook": {
+      "url": "https://www.vedicastrologer.org/articles/vedic_astro_textbook.pdf",
+      "locator": "PVR Narasimha Rao, Vedic Astrology Integrated Approach;6.2.9 D9,8.2 karakas,9.2 arudha,10.3 rasi aspects,16.2-3 Vimshottari. Author-hosted; later refinements explicitly acknowledged.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-karaka2008": {
+      "url": "https://www.vedicastrologer.org/articles/c_karaka.pdf",
+      "locator": "PVR2008-10-24 independent interpretation,pp1-4; distinct from conventional seven/eight schemes.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "pvr-chara2014": {
+      "url": "https://vedicastrologer.org/articles/pp_chara_dasa.pdf",
+      "locator": "PVR2014-04-14 v1,pp3-4; innovative Parasara Chara Dasa; seed/co-lord/duration rules; antardashas omitted.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "srath-argala": {
+      "url": "https://srath.com/jyoti%E1%B9%A3a/amateur/argala-planetary-intervention/",
+      "locator": "Sanjay Rath Argala: Planetary Intervention; primary, secondary and special intervention sections.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "srath-ak": {
+      "url": "https://srath.com/jyoti%E1%B9%A3a/scholar/atmakaraka-karakamsa/",
+      "locator": "Sanjay Rath Atmakaraka and Karakamsa; opening definition and AK relative to Lagnamsa.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    },
+    "jh-features": {
+      "url": "https://www.vedicastrologer.org/jh/features.htm",
+      "locator": "Author software feature inventory; documents alternative dashas/year models, not sufficient proof of each algorithm.",
+      "review_status": "pending",
+      "retrieved_content_sha256": null,
+      "access_note": "Research-agent source discovery; independent full source/edition verification remains pending."
+    }
+  },
+  "methods": [
+    {
+      "id": "chara-karakas",
+      "label": "Conventional seven/eight karaka ranking",
+      "version": "0.1.0",
+      "tradition": "Jaimini named profiles",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older",
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "chara_karakas",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Exact ties halt; school-specific tie-sharing variants are not implemented."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "rasi-drishti",
+      "label": "Movable/fixed/dual sign aspects",
+      "version": "0.1.0",
+      "tradition": "Jaimini",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "rasi_drishti",
+      "fixed_parameters": {},
+      "unresolved_gaps": [],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "arudha-pvr-textbook",
+      "label": "Arudha with tenth-from-raw exception",
+      "version": "0.1.0",
+      "tradition": "PVR textbook9.2 named convention",
+      "status": "implemented_arithmetic",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-textbook"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": "arudha",
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Caller resolves lord; Scorpio/Aquarius co-lord hierarchy is not automated."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "karakamsha",
+      "label": "Karakamsha delineation",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "procedure_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "srath-ak"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Compute AK D9 sign; select D9 reading versus projected D1 explicitly."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "argala",
+      "label": "Argala and obstruction",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "procedure_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "srath-argala"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Record pair evidence; full equal-count strength hierarchy not automated."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "jaimini-chara-dasha",
+      "label": "Jaimini Chara Dasha variants",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-chara2014"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Resolve selected school, seed/co-lord ties, numerical weaknesses, year model and subperiods."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "karaka-pvr2008",
+      "label": "PVR2008 alternative karaka procedure",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "pvr-karaka2008"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Do not substitute for conventional seven/eight schemes."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "narayana-dasha",
+      "label": "Narayana Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Feature inventory verifies existence only; complete sourced procedure pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "sthira-dasha",
+      "label": "Sthira Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Start planet and suitability conditions need a complete named profile."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "shoola-dasha",
+      "label": "Shoola Dasha",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jh-features"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Full execution branches and interpretation passages pending."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    },
+    {
+      "id": "jaimini-yogas",
+      "label": "Jaimini yogas and yogada",
+      "version": "0.1.0",
+      "tradition": "Jaimini and related sign-dasha schools",
+      "status": "research_only",
+      "skill": "skills/cosmora-jaimini/SKILL.md",
+      "procedure": "skills/cosmora-jaimini/references/procedure.md",
+      "source_ids": [
+        "jaimini-older"
+      ],
+      "profiles": [
+        "jaimini-sidereal-v1"
+      ],
+      "backend": null,
+      "fixed_parameters": {},
+      "unresolved_gaps": [
+        "Require exact sutra/commentary, topic and exception list; no invented generic yoga scores."
+      ],
+      "source_review_status": "pending",
+      "empirical_validation": false
+    }
+  ],
+  "scope_note": "Initial expandable inventory, not all historical techniques; author-specific and conflicting schools remain separate."
+}

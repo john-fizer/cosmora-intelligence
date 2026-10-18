@@ -27,3 +27,7 @@ Invented citation; 2 copies of same syndicated story; ambiguous birth time; date
 ## Blinded interpretation experiment
 
 The [blinded evaluation workflow](BLINDED_EVALUATION.md) separates the isolated astrologer interpreter from the independent event labeler and development-only calibration analyst. The interpreter receives only sanitized chart packets and a frozen rulebook. The coordinator commits complete predictions before revealing labels; the evaluator retains misses, false positives and baseline comparisons. Revised axioms require new studies and fresh holdout people. The module provides the handoff and ledger; it does not launch agents or enforce an external sandbox.
+
+## Technique skills and method profiles
+
+The [technique library](TECHNIQUE_LIBRARY.md) gives the doctrine researcher a repeatable source-to-procedure workflow and gives calculation/interpreter workers named methods with explicit traditions and branches. The dispatcher selects a catalog method and compatible profile, reads its skill, and checks its execution status. Calculation workers execute supported arithmetic only; unresolved methods return gaps. Doctrine sources, calculation outputs and observed historical events retain separate types. Source references remain pending until actual retrieval and independent review. Existing historical/training/scientific gates still apply.

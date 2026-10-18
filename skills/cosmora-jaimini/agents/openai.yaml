@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora Jaimini methods"
+  short_description: "Apply named Jaimini karaka, aspect and arudha procedures."
+  default_prompt: "Use $cosmora-jaimini to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

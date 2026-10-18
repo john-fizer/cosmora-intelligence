@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora natal delineation"
+  short_description: "Delineate natal charts with ordered Hellenistic testimony."
+  default_prompt: "Use $cosmora-delineation to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

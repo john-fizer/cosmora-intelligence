@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora technique research"
+  short_description: "Formalize source-attributed chart methods as reusable skills"
+  default_prompt: "Use $cosmora-technique-research to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."

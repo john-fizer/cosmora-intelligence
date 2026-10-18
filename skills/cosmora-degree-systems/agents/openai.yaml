@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cosmora degree systems"
+  short_description: "Distinguish decans, bounds and authored degree doctrines."
+  default_prompt: "Use $cosmora-degree-systems to apply its source-attributed procedure and record assumptions, calculation steps and evidence status."
