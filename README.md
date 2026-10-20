@@ -84,3 +84,5 @@ See [Five-person pilot and analyst annotations](docs/PILOT_WORKFLOW.md) for samp
 See [Blinded interpretation and calibration](docs/BLINDED_EVALUATION.md) for anonymous chart packets, frozen rule-based predictions, independent event labels, baseline scoring, private graph exports and fresh-person validation of revised interpretations.
 
 See [Technique and reusable skill library](docs/TECHNIQUE_LIBRARY.md) for source-attributed Hellenistic, Jaimini/Jyotish, degree-system and Eastern-framework procedures, calculation helpers and explicit research gaps.
+
+See [Collective chart graph](docs/COLLECTIVE_GRAPH.md) for shared cross-person configurations, case/source lineage, descriptive event and counterexample counts, retrieval documents and the collective explorer.
